@@ -23,6 +23,7 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-h2console")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("tools.jackson.module:jackson-module-kotlin")
@@ -47,4 +48,11 @@ allOpen {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.register<JavaExec>("runJpaMain") {
+	group = "application"
+	description = "Run the JpaMain class."
+	classpath = sourceSets["main"].runtimeClasspath
+	mainClass.set("com.example.exam_proj.JpaMain")
 }

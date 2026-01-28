@@ -13,9 +13,8 @@ class RepositoryRunner(
     @Transactional
     override fun run(vararg args: String) {
         val member = Member(id = "id1", name = "Alice", age = 25)
-        memberRepository.save(member)
-
-        member.age = 40
+        val savedMember = memberRepository.save(member)
+        savedMember.age = 40
 
 
         println("====RepositoryMember=====")
