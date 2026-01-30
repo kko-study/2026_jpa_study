@@ -1,0 +1,99 @@
+# 5장. 연관관계 매핑 기초
+
+> Java 또는 Kotlin 중 편한 언어로 구현하세요.
+
+---
+
+## 숙제 1: 다대일 양방향 구현
+
+### 요구사항
+
+`Team`과 `Member` 엔티티를 생성하고, 다대일 양방향 관계를 설정하세요.
+
+**Team 엔티티:**
+- id: 기본키, 자동 생성
+- name: 팀 이름
+- members: Member 리스트 (`@OneToMany`, `mappedBy`)
+
+**Member 엔티티:**
+- id: 기본키, 자동 생성
+- name: 회원 이름
+- team: Team 참조 (`@ManyToOne`, `@JoinColumn`)
+
+---
+
+### 문제 1-1: FK 저장 확인
+> 목표: 연관관계 주인 쪽에서 FK를 설정하면 DB에 저장되는지 확인
+
+1. Team "개발팀" 저장
+2. Member "홍길동" 저장
+3. `member.setTeam(team)` 호출
+4. flush/clear 후 Member를 다시 조회
+5. `member.getTeam()`이 "개발팀"인지 확인
+
+---
+
+### 문제 1-2: FK 업데이트 확인
+> 목표: 연관관계 변경이 DB에 반영되는지 확인
+
+1. Team "개발팀", "기획팀" 저장
+2. Member "홍길동"을 "개발팀"에 소속시킴
+3. flush/clear
+4. Member를 다시 조회해서 `member.setTeam(기획팀)` 호출
+5. flush/clear 후 Member를 다시 조회
+6. `member.getTeam()`이 "기획팀"으로 변경됐는지 확인
+
+---
+
+### 문제 1-3: 연관관계 주인의 중요성
+> 목표: 주인이 아닌 쪽에서만 설정하면 DB에 반영 안 됨을 확인
+
+1. Team, Member 저장
+2. `team.getMembers().add(member)`만 호출 (member.setTeam은 호출하지 않음)
+3. flush/clear 후 Member를 다시 조회
+4. `member.getTeam()`이 null인지 확인
+
+왜 null일까요?
+
+---
+
+### 문제 1-4: 1차 캐시 문제
+> 목표: 양쪽 다 설정해야 하는 이유 (1차 캐시 동기화)
+
+1. Team, Member 저장
+2. `member.setTeam(team)`만 호출 (`team.getMembers().add()`는 호출하지 않음)
+3. flush 전에 `team.getMembers().size()` 출력
+4. flush/clear 후 Team을 다시 조회
+5. `team.getMembers().size()` 출력
+
+3번과 5번의 결과가 다른 이유는 무엇일까요?
+
+```bash
+./gradlew test --tests "homework.chapter_5.*"
+```
+
+---
+
+## 숙제 2: toString() 무한루프
+
+### 요구사항
+
+`Team`과 `Member`에 서로를 출력하는 `toString()` 추가:
+- `Member.toString()`에서 `team` 출력
+- `Team.toString()`에서 `members` 출력
+
+---
+
+### 문제 2-1: 무한루프 확인
+> 목표: 양방향 toString()의 무한루프 문제 인식
+
+1. Team, Member 양방향 관계 설정
+2. flush/clear 후 Member 조회
+3. `member.toString()` 호출
+4. `StackOverflowError` 발생하는지 확인
+
+---
+
+### 문제 2-2: 해결 (선택)
+
+toString()에서 연관 엔티티를 제외하거나 ID만 출력하도록 수정
