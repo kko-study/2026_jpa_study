@@ -12,22 +12,24 @@
         <class>homework.chapter_4.Member</class>
         <class>homework.chapter_4.User</class>
 
-        <!-- 5장 엔티티 -->
-        <class>homework.chapter_5.Team</class>
-        <class>homework.chapter_5.Member</class>
+        <!-- 5장 문제별 엔티티 -->
+        <class>homework.chapter_5.problem1.Team</class>
+        <class>homework.chapter_5.problem1.Member</class>
+        <class>homework.chapter_5.problem2_1.Team</class>
+        <class>homework.chapter_5.problem2_1.Member</class>
 
-        <!-- 6장 숙제1: 일대다 단방향 -->
-        <class>homework.chapter_6.homework1.Team</class>
-        <class>homework.chapter_6.homework1.Member</class>
-
-        <!-- 6장 숙제2: 일대일 -->
-        <class>homework.chapter_6.homework2.Member</class>
-        <class>homework.chapter_6.homework2.Locker</class>
-
-        <!-- 6장 숙제3: 다대다 중간 엔티티 -->
-        <class>homework.chapter_6.homework3.Member</class>
-        <class>homework.chapter_6.homework3.Product</class>
-        <class>homework.chapter_6.homework3.Order</class>
+        <!-- 6장 문제별 엔티티 -->
+        <class>homework.chapter_6.problem1_1.Team</class>
+        <class>homework.chapter_6.problem1_1.Member</class>
+        <class>homework.chapter_6.problem1_2.Team</class>
+        <class>homework.chapter_6.problem1_2.Member</class>
+        <class>homework.chapter_6.problem2_1.Member</class>
+        <class>homework.chapter_6.problem2_1.Locker</class>
+        <class>homework.chapter_6.problem2_2.Member</class>
+        <class>homework.chapter_6.problem2_2.Locker</class>
+        <class>homework.chapter_6.problem3_1.Member</class>
+        <class>homework.chapter_6.problem3_1.Product</class>
+        <class>homework.chapter_6.problem3_1.Order</class>
         <properties>
             <!-- H2 Database Connection -->
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
