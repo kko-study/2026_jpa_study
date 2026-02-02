@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,6 +35,11 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;  //배송정보
+
     /**
      * NOTE:
      *
@@ -48,12 +54,18 @@ public class Order {
     private OrderStatus status;
 
     // 연관관계 편의 메서드
+
     public void setMember(Member member) {
         if (this.member != null) {
             this.member.getOrders().remove(this);
         }
         this.member = member;
         member.getOrders().add(this);
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
     }
 
     public void addOrderItem(OrderItem orderItem) {
