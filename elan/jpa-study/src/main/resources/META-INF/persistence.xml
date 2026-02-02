@@ -8,6 +8,9 @@
 		<class>kr.hoi9un.jpastudy.hw3.Member</class>
 		<class>kr.hoi9un.jpastudy.hw4.Member4</class>
 		<class>kr.hoi9un.jpastudy.hw4.User</class>
+		<class>kr.hoi9un.jpastudy.hw5.Team5</class>
+		<class>kr.hoi9un.jpastudy.hw5.Member5</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
 			<property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1"/>
@@ -18,6 +21,7 @@
 			<property name="hibernate.hbm2ddl.auto" value="create"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
+			<property name="hibernate.archive.autodetection" value="class"/>
 		</properties>
 	</persistence-unit>
 </persistence>
