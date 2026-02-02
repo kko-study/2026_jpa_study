@@ -37,10 +37,9 @@
         <class>homework.chapter_6.bonus2.Member</class>
         <class>homework.chapter_6.bonus2.Product</class>
         <class>homework.chapter_6.bonus2.EventOrder</class>
+        <class>homework.chapter_6.bonus3.Team</class>
+        <class>homework.chapter_6.bonus3.Member</class>
 
-        <!-- 6장 예제 -->
-        <class>homework.chapter_6.example_2.Team</class>
-        <class>homework.chapter_6.example_2.Member</class>
         <properties>
             <!-- H2 Database Connection -->
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
