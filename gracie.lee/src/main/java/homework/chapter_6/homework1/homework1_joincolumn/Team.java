@@ -1,22 +1,30 @@
-package homework.chapter_5;
+package homework.chapter_6.homework1.homework1_joincolumn;
 
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "Chapter5Team")
-@Table(name = "TEAM_CH5")
+@Entity(name = "Hw1JoinTeam")
+@Table(name = "team_hw1_join")
 public class Team {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "TEAM_ID")
+    @GeneratedValue
+    @Column(name = "team_id")
     private Long id;
 
     private String name;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany
+    @JoinColumn(name = "team_id")
     private List<Member> members = new ArrayList<>();
+
+    protected Team() {
+    }
+
+    public Team(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
@@ -26,12 +34,11 @@ public class Team {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public List<Member> getMembers() {
         return members;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }

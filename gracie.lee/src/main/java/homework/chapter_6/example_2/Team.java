@@ -1,12 +1,17 @@
-package homework.chapter_5.problem2_1;
+package homework.chapter_6.example_2;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "P21Team")
-@Table(name = "P21_TEAM")
+/**
+ * 일대다 단방향 예제 - Team (연관관계 주인)
+ *
+ * 특징: "1" 쪽에서 FK를 관리한다
+ * 단점: Member 테이블에 UPDATE 쿼리가 추가로 발생
+ */
+@Entity(name = "Ch6Ex2Team")
+@Table(name = "CH6_EX2_TEAM")
 public class Team {
 
     @Id
@@ -16,7 +21,8 @@ public class Team {
 
     private String name;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany
+    @JoinColumn(name = "TEAM_ID")  // Member 테이블의 FK 컬럼
     private List<Member> members = new ArrayList<>();
 
     protected Team() {
@@ -34,21 +40,11 @@ public class Team {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public List<Member> getMembers() {
         return members;
     }
 
-    // toString에서 members 출력 → 무한루프 발생!
-    @Override
-    public String toString() {
-        return "Team{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-//                ", members=" + members +  // ← Member.toString() 호출
-                '}';
+    public void addMember(Member member) {
+        members.add(member);
     }
 }
