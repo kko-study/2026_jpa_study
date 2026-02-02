@@ -13,6 +13,7 @@ class Team(
     var name: String? = null,
 
     @OneToMany
-    // @JoinColumn(name = "team_id")  <- 주석 해제/처리해서 SQL 차이 확인!
+//    주석 해제/처리해서 SQL 차이 확인!
+//    @JoinColumn(name = "team_id")
     val members: MutableList<Member> = mutableListOf()
 )
