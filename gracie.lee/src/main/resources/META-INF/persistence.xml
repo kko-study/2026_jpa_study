@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <persistence-unit name="jpabook">
+        <!-- 3장 엔티티 -->
+        <class>homework.chapter_3.Member</class>
+
+        <!-- 4장 엔티티 -->
+        <class>homework.chapter_4.Member</class>
+        <class>homework.chapter_4.User</class>
+
+        <!-- 5장 숙제 엔티티 -->
+        <class>homework.chapter_5.homework1_bidirectional.Team</class>
+        <class>homework.chapter_5.homework1_bidirectional.Member</class>
+        <class>homework.chapter_5.homework2_tostring_loop.Team</class>
+        <class>homework.chapter_5.homework2_tostring_loop.Member</class>
+
+        <!-- 6장 숙제 엔티티 -->
+        <class>homework.chapter_6.homework1.homework1_joincolumn.Team</class>
+        <class>homework.chapter_6.homework1.homework1_joincolumn.Member</class>
+        <class>homework.chapter_6.homework1.homework1_nojoincolumn.Team</class>
+        <class>homework.chapter_6.homework1.homework1_nojoincolumn.Member</class>
+        <class>homework.chapter_6.homework2.homework2_eager.Member</class>
+        <class>homework.chapter_6.homework2.homework2_eager.Locker</class>
+        <class>homework.chapter_6.homework2.homework2_lazy.Member</class>
+        <class>homework.chapter_6.homework2.homework2_lazy.Locker</class>
+        <class>homework.chapter_6.homework3.Member</class>
+        <class>homework.chapter_6.homework3.Product</class>
+        <class>homework.chapter_6.homework3.Order</class>
+
+        <!-- 6장 보너스 -->
+        <class>homework.chapter_6.bonus1.Member</class>
+        <class>homework.chapter_6.bonus1.Locker</class>
+        <class>homework.chapter_6.bonus2.Member</class>
+        <class>homework.chapter_6.bonus2.Product</class>
+        <class>homework.chapter_6.bonus2.EventOrder</class>
+        <class>homework.chapter_6.bonus3.Team</class>
+        <class>homework.chapter_6.bonus3.Member</class>
+
+        <properties>
+            <!-- H2 Database Connection -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:test"/>
+            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+
+            <!-- Hibernate Dialect -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
+            <!-- Hibernate Options -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+
+            <!-- DDL Auto: create, create-drop, update, validate, none -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

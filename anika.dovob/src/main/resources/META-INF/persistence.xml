@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+    <persistence-unit name="jpabook">
+        <class>com.example.anika.homework.chapter3.entity.Member</class>
+        <class>com.example.anika.homework.chapter4.entity.User</class>
+        <properties>
+            <!-- H2 데이터베이스 드라이버 및 설정 -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:test"/>
+            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+
+            <!-- H2 데이터베이스 방언 사용 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <!--
+                hibernate.hbm2ddl.auto 설정 옵션:
+                - create: 기존 테이블 삭제 후 새로 생성
+                - create-drop: create + 종료 시 테이블 삭제
+                - update: 변경 사항만 반영
+                - validate: 엔티티와 테이블 매핑 검증만
+                - none: 아무것도 하지 않음
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <!-- 실행되는 SQL 을 보여줌 -->
+            <property name="hibernate.show_sql" value="true"/>
+            <!-- 실행되는 SQL 을 이쁘게 보여줌 -->
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.id.new_generator_mappings" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
