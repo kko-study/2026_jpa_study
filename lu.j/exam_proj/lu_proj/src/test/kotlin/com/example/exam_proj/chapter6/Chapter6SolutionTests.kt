@@ -125,22 +125,4 @@ class Chapter6SolutionTests@Autowired constructor(
         assertEquals(2, orders[1].count)
         assertEquals(LocalDate.of(2026, 1, 20), orders[1].orderDate)
     }
-
-    @Test
-    fun bonus1() = runInTx { em ->
-        val member = Chapter6Member("홍길동")
-        val locker = Chapter6Locker(name = "101번")
-
-        em.persist(locker)
-        member.locker = locker
-        em.persist(member)
-
-        em.flush()
-        em.clear()
-
-        val foundLocker = em.find(Chapter6Locker::class.java, locker.id)
-        println("=== Locker 조회 끝 ===")
-        val memberName = foundLocker.getMember()?.getName()
-        assertEquals("홍길동", memberName)
-    }
 }

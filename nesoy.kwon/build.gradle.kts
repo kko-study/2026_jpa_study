@@ -48,3 +48,8 @@ allOpen {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+tasks.register<JavaExec>("execute") {
+    mainClass.set(project.findProperty("mainClass") as String? ?: "homework.chapter_6.JpaMain")
+    classpath = sourceSets["main"].runtimeClasspath
+}

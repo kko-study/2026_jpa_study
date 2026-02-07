@@ -24,6 +24,4 @@ class Chapter6Member(
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "LOCKER_ID")
     var locker: Chapter6Locker? = null
-
-    fun getName(): String? = name
 }

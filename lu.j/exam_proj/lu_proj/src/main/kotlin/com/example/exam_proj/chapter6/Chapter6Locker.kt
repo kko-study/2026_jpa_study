@@ -2,11 +2,9 @@ package com.example.exam_proj.chapter6
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
-import jakarta.persistence.FetchType
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
-import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 
 @Entity
@@ -19,9 +17,4 @@ class Chapter6Locker(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LOCKER_ID")
     var id: Long = 0L
-
-    @OneToOne(mappedBy = "locker", fetch = FetchType.LAZY)
-    private var member: Chapter6Member? = null
-
-    fun getMember(): Chapter6Member? = member
 }

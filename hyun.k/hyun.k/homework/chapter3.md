@@ -1,0 +1,48 @@
+# 3장. 영속성 관리
+
+## 1. 회원 등록, 조회, 수정을 수행하는 전체 코드를 작성하세요.
+
+요구사항:
+- EntityManagerFactory와 EntityManager 생성
+- 회원(id=1L, name="홍길동") 저장
+- 저장한 회원 조회
+- 회원 이름을 "김철수"로 변경 (변경 감지 활용)
+- 트랜잭션 커밋 및 자원 정리
+
+```java
+public class JpaMain {
+    public static void main(String[] args) {
+        // 여기에 코드를 작성하세요
+
+
+    }
+}
+```
+
+## 2. 1차 캐시와 동일성 보장을 테스트하는 코드를 작성하세요.
+
+요구사항:
+- 새로운 회원을 생성하여 영속 상태로 만들기
+- 같은 id로 두 번 조회하여 동일성(==) 비교
+- 영속성 컨텍스트를 초기화(clear) 후 다시 조회
+- 초기화 전후의 엔티티가 같은 객체인지 비교하고 결과 출력
+- 각 단계마다 주석으로 예상되는 SQL 쿼리 여부 표시
+
+
+```java
+public class CacheTest {
+    public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpabook");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        tx.begin();
+        // 여기에 코드를 작성하세요
+
+
+        tx.commit();
+        em.close();
+        emf.close();
+    }
+}
+```
