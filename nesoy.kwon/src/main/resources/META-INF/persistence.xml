@@ -10,6 +10,8 @@
         <class>homework.chapter_7.SubscriptionItem</class>
         <class>homework.chapter_7.Order</class>
         <class>homework.chapter_7.OrderItem비식별관계</class>
+        <class>homework.chapter_8.Team</class>
+        <class>homework.chapter_8.Member</class>
         <properties>
             <!-- H2 Database Connection -->
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
