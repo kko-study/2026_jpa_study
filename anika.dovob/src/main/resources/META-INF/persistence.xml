@@ -6,6 +6,13 @@
     <persistence-unit name="jpabook">
         <class>com.example.anika.homework.chapter3.entity.Member</class>
         <class>com.example.anika.homework.chapter4.entity.User</class>
+        <class>com.example.anika.homework.chapter7.Item</class>
+        <class>com.example.anika.homework.chapter7.NormalItem</class>
+        <class>com.example.anika.homework.chapter7.SubscriptionItem</class>
+        <class>com.example.anika.homework.chapter7.Order</class>
+        <class>com.example.anika.homework.chapter7.OrderItem</class>
+        <class>com.example.anika.homework.chapter8.Team</class>
+        <class>com.example.anika.homework.chapter8.Member</class>
         <properties>
             <!-- H2 데이터베이스 드라이버 및 설정 -->
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
