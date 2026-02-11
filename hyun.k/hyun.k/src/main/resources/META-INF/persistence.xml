@@ -10,14 +10,24 @@
 <!--        <class>chapter5.Member</class>-->
 <!--        <class>chapter5.Team</class>-->
 
-        <class>chapter6.homework1.Team</class>
-        <class>chapter6.homework1.Member</class>
-        <class>chapter6.homework2.Member2</class>
-        <class>chapter6.homework2.Locker2</class>
+<!--        <class>chapter6.homework1.Team</class>-->
+<!--        <class>chapter6.homework1.Member</class>-->
+<!--        <class>chapter6.homework2.Member2</class>-->
+<!--        <class>chapter6.homework2.Locker2</class>-->
 
-        <class>chapter6.homework3.Member3</class>
-        <class>chapter6.homework3.Product</class>
-        <class>chapter6.homework3.Order</class>
+<!--        <class>chapter6.homework3.Member3</class>-->
+<!--        <class>chapter6.homework3.Product</class>-->
+<!--        <class>chapter6.homework3.Order</class>-->
+
+        <class>chapter7.Item</class>
+        <class>chapter7.NormalItem</class>
+        <class>chapter7.SubscriptionItem</class>
+        <class>chapter7.Order</class>
+        <class>chapter7.OrderItem</class>
+        <class>chapter7.OrderItemOption</class>
+
+        <class>chapter8.Team</class>
+        <class>chapter8.Member</class>
 
         <properties>
             <!-- DB 연결 정보 -->
