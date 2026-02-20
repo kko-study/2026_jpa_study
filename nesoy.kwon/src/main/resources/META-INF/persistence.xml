@@ -5,13 +5,15 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 
     <persistence-unit name="jpabook">
-        <class>homework.chapter_7.Item</class>
-        <class>homework.chapter_7.NormalItem</class>
-        <class>homework.chapter_7.SubscriptionItem</class>
-        <class>homework.chapter_7.Order</class>
-        <class>homework.chapter_7.OrderItem비식별관계</class>
-        <class>homework.chapter_8.Team</class>
-        <class>homework.chapter_8.Member</class>
+<!--        <class>homework.chapter_7.Item</class>-->
+<!--        <class>homework.chapter_7.NormalItem</class>-->
+<!--        <class>homework.chapter_7.SubscriptionItem</class>-->
+<!--        <class>homework.chapter_7.Order</class>-->
+<!--        <class>homework.chapter_7.OrderItem비식별관계</class>-->
+<!--        <class>homework.chapter_8.Team</class>-->
+<!--        <class>homework.chapter_8.Member</class>-->
+        <class>homework.chapter_9.AddressEntity</class>
+        <class>homework.chapter_9.Address</class>
         <properties>
             <!-- H2 Database Connection -->
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
