@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
@@ -24,4 +25,9 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     @Query("select m from Member m where m.name like concat('%', :keyword, '%')")
     List<Member> findByNameContaining(@Param("keyword") String keyword);
+
+    // ===== Ch13 fetch join =====
+
+    @Query("select m from Member m join fetch m.team where m.id = :id")
+    Optional<Member> findWithTeamById(@Param("id") Long id);
 }
