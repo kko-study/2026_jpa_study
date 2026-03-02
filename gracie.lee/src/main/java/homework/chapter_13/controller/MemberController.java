@@ -21,7 +21,7 @@ public class MemberController {
     }
 
     @GetMapping("/members/{id}")
-    public ResponseEntity<String> getMember(@PathVariable Long id) {
+    public ResponseEntity<String> getMember(@PathVariable("id") Long id) {
         Member member = memberService.findMember(id);
         // OSIV=true이면 여기서도 Lazy 로딩 가능
         // OSIV=false이면 LazyInitializationException 발생
