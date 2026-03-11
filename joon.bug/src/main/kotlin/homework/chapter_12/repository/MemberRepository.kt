@@ -4,6 +4,7 @@ import homework.chapter_12.entity.Member
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
+import java.util.Optional
 
 /**
  * 12장 과제: Spring Data JPA Repository
@@ -38,4 +39,8 @@ interface MemberRepository : JpaRepository<Member, Long> {
     // Q2-2: 이름에 특정 문자열이 포함된 회원 목록 조회 (메서드명: findByNameContaining)
     @Query("select m from Member m where m.name like concat('%', :keyword, '%')")
     fun findByNameContaining(@Param("keyword") keyword: String): List<Member>
+
+    // 13장: Member + Team fetch join 조회
+    @Query("select m from Member m join fetch m.team where m.id = :id")
+    fun findWithTeamById(@Param("id") id: Long): Optional<Member>
 }
