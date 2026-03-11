@@ -1,6 +1,8 @@
 plugins {
 	id 'java'
 	id 'application'
+	id 'org.springframework.boot' version '3.3.4'
+	id 'io.spring.dependency-management' version '1.1.6'
 }
 
 group = 'kr.hoi9un'
@@ -17,19 +19,24 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.hibernate.orm:hibernate-core:6.2.12.Final'
+	implementation 'org.hibernate.orm:hibernate-core:6.5.3.Final'
 	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
 	runtimeOnly 'com.h2database:h2:2.2.224'
-	runtimeOnly 'org.slf4j:slf4j-simple:2.0.13'
 
 	compileOnly 'org.projectlombok:lombok:1.18.34'
 	annotationProcessor 'org.projectlombok:lombok:1.18.34'
 
+	// Spring Boot (ch12-13)
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 application {
-	mainClass = 'kr.hoi9un.jpastudy.hw3.JpaMain'
+	mainClass = 'homework.chapter_12.Chapter12Application'
 }
 
 tasks.named('test') {
