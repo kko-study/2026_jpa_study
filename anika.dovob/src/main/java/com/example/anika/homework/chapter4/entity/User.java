@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Check;
 
 /**
  * 요구사항:
@@ -20,9 +21,9 @@ import lombok.Setter;
         name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(name = "UQ_name_age", columnNames = {"name", "age"})
-        },
-        check = @CheckConstraint(name = "CK_age", constraint = "age >= 0 AND age <= 150")
+        }
 )
+@Check(constraints = "age >= 0 AND age <= 150")
 @Getter
 @Setter
 @NoArgsConstructor
