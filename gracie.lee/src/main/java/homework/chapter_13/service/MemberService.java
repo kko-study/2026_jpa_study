@@ -22,8 +22,8 @@ public class MemberService {
      */
     @Transactional
     public void changeName(Long memberId, String newName) {
-        // TODO: memberId로 Member를 조회하고, 이름을 newName으로 변경하세요.
-        // save()를 호출하지 마세요!
+        Member member = memberRepository.findById(memberId).orElseThrow();
+        member.changeName(newName);
     }
 
     /**
@@ -31,8 +31,8 @@ public class MemberService {
      * 동일한 로직이지만 @Transactional이 없습니다.
      */
     public void changeNameWithoutTransaction(Long memberId, String newName) {
-        // TODO: memberId로 Member를 조회하고, 이름을 newName으로 변경하세요.
-        // 위와 동일한 로직이지만 @Transactional이 없습니다.
+        Member member = memberRepository.findById(memberId).orElseThrow();
+        member.changeName(newName);
     }
 
     // ===== Scenario B: 트랜잭션 밖 지연 로딩 =====
@@ -43,9 +43,7 @@ public class MemberService {
      */
     @Transactional(readOnly = true)
     public Member findMember(Long memberId) {
-        // TODO: memberId로 Member를 조회해서 반환하세요.
-        // Team은 접근하지 마세요! (LAZY 상태 유지)
-        return null;
+        return memberRepository.findById(memberId).orElseThrow();
     }
 
     /**
@@ -58,8 +56,6 @@ public class MemberService {
      */
     @Transactional(readOnly = true)
     public Member findMemberWithTeam(Long memberId) {
-        // TODO: Member를 조회하되, Team을 fetch join으로 함께 가져오세요.
-        // Repository에 fetch join 쿼리 메서드를 추가해야 합니다.
-        return null;
+        return memberRepository.findWithTeamById(memberId).orElseThrow();
     }
 }
